@@ -7,51 +7,72 @@ function App() {
   const [role, setRole] = useState("dev");
   const [employees, setEmployees] = useState([
     {
-      name: "Caleb", 
+      id: 1,
+      name: "Caleb",
       role: "Youtube Sensation",
       img: "https://images.pexels.com/photos/1839564/pexels-photo-1839564.jpeg?",
     },
     {
+      id: 2,
       name: "Shaziya",
       role: "Software Engineer",
       img: "https://images.pexels.com/photos/25756/pexels-photo.jpg?",
     },
     {
+      id: 3,
       name: "Abby",
       role: "Manager",
       img: "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?",
     },
     {
+      id: 4,
       name: "Someone",
       role: "Web-Developer",
       img: "https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg?",
     },
     {
+      id: 5,
       name: "John",
       role: "HardWare Engineer",
       img: "https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?",
     },
     {
+      id: 6,
       name: "Nancy",
       role: "Developer",
       img: "https://images.pexels.com/photos/2169434/pexels-photo-2169434.jpeg?",
     },
     {
+      id: 7,
       name: "Elliot",
       role: "Developer",
       img: "https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?",
     },
     {
+      id: 8,
       name: "Nile",
       role: "Developer",
       img: "https://images.pexels.com/photos/2287252/pexels-photo-2287252.jpeg?",
     },
     {
+      id: 9,
       name: "Beauty",
       role: "Developer",
       img: "https://images.pexels.com/photos/2083751/pexels-photo-2083751.jpeg?",
     },
   ]);
+
+  function updateEmployee(id, newName, newRole) {
+    const updatedEmployees = employees.map((employee) => {
+      if (id == employee.id) {
+        return { ...employee, name: newName, role: newRole };
+      }
+      return employee;
+    });
+
+    setEmployees(updatedEmployees);
+  }
+
   const showEmployee = true;
 
   return (
@@ -69,10 +90,12 @@ function App() {
             {employees.map((employee) => {
               return (
                 <Employee
-                  key={uuidv4()}
+                  key={employee.id}
+                  id={employee.id}
                   name={employee.name}
                   role={employee.role}
                   img={employee.img}
+                  updateEmployee={updateEmployee}
                 />
               );
             })}

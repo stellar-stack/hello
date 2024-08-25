@@ -30,7 +30,14 @@ function EditEmployee(props) {
           <Modal.Title>Update Employee</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <form id="editmodal" className="w-full max-w-sm">
+          <form onSubmit={(e) => {
+            handleClose();
+            e.preventDefault();
+            
+            props.updateEmployee(props.id, name, role)
+          }} 
+          
+          id= 'editmodal' className="w-full max-w-sm">
             <div className="md:flex md:items-center mb-6">
               <div className="md:w-1/3">
                 <label
@@ -45,13 +52,12 @@ function EditEmployee(props) {
                   className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
                   id="name"
                   type="text"
-                  value={name}
-                  onChange={(e) => {
-                    setName(e.target.value);
-                  }}
+                  value = {name}
+                  onChange={(e) => {setName(e.target.value)}}
                 />
               </div>
             </div>
+
 
             <div className="md:flex md:items-center mb-6">
               <div className="md:w-1/3">
@@ -67,32 +73,20 @@ function EditEmployee(props) {
                   className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
                   id="role"
                   type="text"
-                  value={role}
-                  onChange={(e) => {
-                    setRole(e.target.value);
-                  }}
+                  value = {role}
+                  onChange={(e) => {setRole(e.target.value)}}
                 />
               </div>
             </div>
+            
           </form>
         </Modal.Body>
         <Modal.Footer>
-          <button
-            className="bg-slate-400 hover:bg-slate-500 text-white font-bold py-2 px-2 rounded"
-            onClick={handleClose}
-            form="editmodal"
-          >
-            {" "}
-            close{" "}
-          </button>
+          
+          <button className="bg-slate-400 hover:bg-slate-500 text-white font-bold py-2 px-2 rounded" 
+          onClick={handleClose} form = "editmodal"> close </button>
 
-          <button
-            className="bg-purple-600 hover:bg-blue-700 text-white font-bold py-2 px-2 rounded"
-            form="editmodal"
-          >
-            {" "}
-            update{" "}
-          </button>
+          <button  className="bg-purple-600 hover:bg-blue-700 text-white font-bold py-2 px-2 rounded" form = "editmodal"> update </button>
           {/* <Button variant="primary">Update</Button> */}
         </Modal.Footer>
       </Modal>
