@@ -45,24 +45,24 @@ function Employees() {
       role: "Developer",
       img: "https://images.pexels.com/photos/2169434/pexels-photo-2169434.jpeg?",
     },
-    {
-      id: 7,
-      name: "Elliot",
-      role: "Developer",
-      img: "https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?",
-    },
-    {
-      id: 8,
-      name: "Nile",
-      role: "Developer",
-      img: "https://images.pexels.com/photos/2287252/pexels-photo-2287252.jpeg?",
-    },
-    {
-      id: 9,
-      name: "Beauty",
-      role: "Developer",
-      img: "https://images.pexels.com/photos/2083751/pexels-photo-2083751.jpeg?",
-    },
+    // {
+    //   id: 7,
+    //   name: "Elliot",
+    //   role: "Developer",
+    //   img: "https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?",
+    // },
+    // {
+    //   id: 8,
+    //   name: "Nile",
+    //   role: "Developer",
+    //   img: "https://images.pexels.com/photos/2287252/pexels-photo-2287252.jpeg?",
+    // },
+    // {
+    //   id: 9,
+    //   name: "Beauty",
+    //   role: "Developer",
+    //   img: "https://images.pexels.com/photos/2083751/pexels-photo-2083751.jpeg?",
+    // },
   ]);
 
   function updateEmployee(id, newName, newRole) {
@@ -91,11 +91,11 @@ function Employees() {
   const showEmployee = true;
 
   return (
-    <div className="App bg-slate-900 min-h-screen">
+    <div className="">
       
       {showEmployee ? (
         <>
-           <div className="flex flex-wrap justify-center my-4">
+           <div className="flex flex-wrap justify-center">
             {employees.map((employee) => {
 
               const editEmployee = <EditEmployee 
