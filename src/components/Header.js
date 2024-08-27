@@ -98,7 +98,7 @@ export default function Header(props) {
       </DisclosurePanel>
     </Disclosure>
 
-    <div className="bg-slate-900">
+    <div className="bg-gray-200">
 
     
 
