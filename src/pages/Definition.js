@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 import NotFound from "../components/NotFound";
+import DefinitionSearch from "../components/DefinitionSearch";
 
 export default function Definition() {
   const [word, setWord] = useState();
@@ -22,7 +23,7 @@ export default function Definition() {
         
         if (response.status === 404) {
           setNotFound(true);
-        } else if (response.status == 401) {
+        } else if (response.status === 401) {
           navigate("/login");
         } else if (response.status === 500) {
           //setServerError(true)
@@ -69,7 +70,12 @@ export default function Definition() {
               {" "}
               {meaning.partOfSpeech}:{" " + meaning.definitions[0].definition}
             </p> // Add a key prop
-          ))}{" "}
+          ))}
+          
+          <p>Search Again</p>
+          <DefinitionSearch />
+          
+          {" "}
         </>
       ) : null}
     </>
